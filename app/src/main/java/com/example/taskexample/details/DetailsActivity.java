@@ -2,6 +2,7 @@ package com.example.taskexample.details;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -57,8 +58,9 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
             return;
         tvDetailsTitle.setText(metadatum.getTitle());
         tvDetailsCategory.setText(metadatum.getCategory());
-        tvDetailsBody.setText(StringUtils.replaceCustomFromHtml(metadatum.getBody()));
+//        tvDetailsBody.setText(StringUtils.replaceCustomFromHtml(metadatum.getBody()));
         tvDetailsDate.setText(DateUtils.setDate(metadatum.getDate().toString()));
+        tvDetailsBody.setText(Html.fromHtml(metadatum.getBody()));
         GlideUtils.setFitCenterImage(ivDetailsImage, metadatum.getCoverPhotoUrl());
         galleryList = metadatum.getGallery();
         videoList = metadatum.getVideo();
